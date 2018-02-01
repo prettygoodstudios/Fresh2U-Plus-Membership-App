@@ -10,11 +10,14 @@
 
   <body>
     <%= render partial: "sharred/nav" %>
-    <div class="container">
-      <%= alert %>
-      <%= link_to "Have an existing membership?", "/renew_membership", class: "standard-button" %>
-      <%= link_to "Join Today!", new_charge_path, class: "standard-button" %>
+    <div class='body'>
+      <div class="container">
+        <%= alert %>
+        <%= link_to "Have an existing membership?", "/renew_membership", class: "standard-button" %>
+        <%= link_to "Join Today!", new_charge_path, class: "standard-button" %>
+      </div>
+      <%= yield %>
     </div>
-    <%= yield %>
+    <%= render partial: "sharred/footer" %>
   </body>
 </html>

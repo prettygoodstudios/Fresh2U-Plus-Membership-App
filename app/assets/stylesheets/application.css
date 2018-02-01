@@ -37,6 +37,17 @@ label{
 .navbar img{
   max-width: 200px;
 }
+.body{
+  min-height: 80vh;
+}
+.footer{
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 2px solid #1AB07A;
+}
+.footer img{
+  max-width: 200px;
+}
 .standard-button{
   background-color: #1AB07A;
   border: none;
