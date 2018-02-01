@@ -1,17 +1,9 @@
 <div class="container">
   <h1>Be Fresh and Join Today!</h1>
-  <p>Receive your membership code to get 15% off on all orders! Get access to our weekly newsletter, where you’ll receive updates on product additions, giveaways, and more!</p>
+  <p>By becoming a Fresh2U Plus member, you'll recieve a unique promo code for 15% off all purchases and orders! You'll also get access to a weekly newsletter, with updates on our current products, and be the first to know about new products! Being a Fresh2U Plus member also enters you into our giveaways, where you'll have a chance to receive free products and merchandise!</p>
   <%= form_tag(charges_path) do |f| %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-      <% end %>
-      <label class="amount">
-        <span>Cost: <%= number_to_currency(@amount/100) %></span>
-      </label>
-    </article>
+    <h3>Only <%= number_to_currency(@amount.to_f/100.to_f) %></h3>
+    <h3>Account Information</h3>
     <label>
       Password:
       <br/>
@@ -22,34 +14,11 @@
       <br/>
       <input type="password" id="confirm" name="confirm">
     </label>
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-
-    <button id="customButton" class="standard-button">Purchase!</button>
-    <script>
-      var handler = StripeCheckout.configure({
-        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-        locale: 'auto',
-        token: function(token) {
-          // You can access the token ID with `token.id`.
-          // Get the token ID to your server-side code for use.
-        }
-      });
-
-      document.getElementById('customButton').addEventListener('click', function(e) {
-        // Open Checkout with further options:
-        handler.open({
-          name: 'Fresh2U Select Membership',
-          description: 'Fresh2U Select Membership is valid for a full year and gives you 15% off all purchases and access to an exclusive newsletter.',
-          amount: <%= @amount %>
-        });
-        e.preventDefault();
-      });
-
-      // Close Checkout on page navigation:
-      window.addEventListener('popstate', function() {
-        handler.close();
-      });
-    </script>
+    <p>Pay securely using Stripe.</p>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Fresh2U Plus"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
   <% end %>
 </div>

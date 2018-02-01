@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Check Membership Status</h1>
+  <form action="/check_membership" method="get">
+    <label>Email</label>
+    <br />
+    <input type="email" name="member" id="member" />
+    <br />
+    <input type="submit" value="Search" />
+  </form>
+  <h1>Renew Membership</h1>
+  <p>This will add an additional 365 days to your membership.</p>
+  <%= form_tag("/renew_membership") do %>
+    <h3>Only <%= number_to_currency(@amount.to_f/100.to_f) %></h3>
+    <h3>Account Information</h3>
+    <label>
+      Password:
+      <br/>
+      <input type="password" id="password" name="password">
+    </label>
+    <p>Pay securely using Stripe.</p>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Fresh2U Plus"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
+  <% end %>
+</div>

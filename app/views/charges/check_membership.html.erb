@@ -1,0 +1,15 @@
+<div class="container">
+  <% if @member != nil %>
+    <h1><%= @time_left %> days are left on this membership.</h1>
+  <% else %>
+    <h1>Email Not Found!</h1>
+    <p>Search Again</p>
+    <form action="/check_membership" method="get">
+      <label>Email</label>
+      <br />
+      <input type="email" name="member" id="member" />
+      <br />
+      <input type="submit" value="Search" />
+    </form>
+  <% end %>
+</div>

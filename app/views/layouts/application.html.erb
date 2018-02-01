@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MembershipApp</title>
+    <title>Fresh2U Plus</title>
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,6 +10,10 @@
 
   <body>
     <%= render partial: "sharred/nav" %>
+    <div class="container">
+      <%= alert %>
+      <%= link_to "Have an existing membership?", "/renew_membership" %>
+    </div>
     <%= yield %>
   </body>
 </html>

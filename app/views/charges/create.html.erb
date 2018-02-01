@@ -1,3 +1,7 @@
-<h2>Thanks <%= @member.email %>, you paid <strong><%= number_to_currency(@amount) %></strong>!</h2>
-<p>Here is your Fresh2U Plus membership number it is valid for a full year!</p>
-<p><%= @promo_code %></p>
+<div class="container">
+  <h2>Thanks <%= @member.email %>, you paid <strong><%= number_to_currency(@amount.to_f/100.to_f) %></strong>!</h2>
+  <p>Here is your Fresh2U Plus membership code it is valid for a full year!</p>
+  <p><%= @promo_code %></p>
+  <p>We sent an email with your membership information check your inbox promptly.</p>
+  <a href="http://www.fresh-2u.myshopify.com" class="standard-button">Shop Now!</a>
+</div>

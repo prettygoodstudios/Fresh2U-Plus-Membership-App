@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Fresh2U Plus, <%= @member.email %></h1>
+    <p>
+      Here is your promo code to recieve 15% off of every purchase and order for an entire year.
+    </p>
+    <p><%= @member.promo_code %></p>
+    <p>
+      Enter in your promo code in the discount field on the checkout form to recieve your discount.
+    </p>
+    <a href="http://www.fresh-2u.myshopify.com">Shop Now!</a>
+  </body>
+</html>
