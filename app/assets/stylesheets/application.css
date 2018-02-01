@@ -43,8 +43,12 @@ label{
   text-decoration: none;
   color: white !important;
   font-size: 1.5em;
-  display: block;
+  display: inline-block;
   padding: 10px;
+  text-align: center;
+  max-width: 500px;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 .standard-button:hover{
   background-color: #32C47E;

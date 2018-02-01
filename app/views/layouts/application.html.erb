@@ -12,7 +12,8 @@
     <%= render partial: "sharred/nav" %>
     <div class="container">
       <%= alert %>
-      <%= link_to "Have an existing membership?", "/renew_membership" %>
+      <%= link_to "Have an existing membership?", "/renew_membership", class: "standard-button" %>
+      <%= link_to "Join Today!", new_charge_path, class: "standard-button" %>
     </div>
     <%= yield %>
   </body>
